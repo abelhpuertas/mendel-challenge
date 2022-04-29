@@ -12,4 +12,14 @@ public class TransactionDto {
     @NotEmpty
     private String type;
     private Long parentId;
+
+    private TransactionDto(String type, Double amount, Long parentId) {
+        this.type = type;
+        this.amount = amount;
+        this.parentId = parentId;
+    }
+
+    public static TransactionDto create(String type, Double amount, Long parentId) {
+        return new TransactionDto(type, amount, parentId);
+    }
 }
